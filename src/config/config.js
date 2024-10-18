@@ -20,6 +20,11 @@ const dbConnection = async () => {
   try {
     await sequelize.authenticate();
     console.log("Database connection successful");
+
+    if (process.env.NODE_ENV === 'development' || 'development') {
+      await sequelize.sync({ alter: true });
+    }
+    console.log("Tables updated!!")
   } catch (err) {
     console.error("Database connection failed");
     process.exit(1);

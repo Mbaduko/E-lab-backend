@@ -23,14 +23,23 @@ export default class User extends Model {
           type:DataTypes.STRING,
           unique:true
         },
+        gender:{
+          type:DataTypes.ENUM('male','female'),
+          allowNull:false
+        },
         email:{
           type:DataTypes.STRING,
           unique:true,
+          allowNull:false,
           validate:{
             isEmail:true
           }
         },
-        password: DataTypes.STRING
+        password: DataTypes.STRING,
+        type:{
+          type:DataTypes.ENUM('SPA','PA','HOSPITAL','DOCTOR','LAB','DELVERER','NAIVE'),
+          allowNull:false
+        }
       },
       {
         sequelize,
