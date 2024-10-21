@@ -39,6 +39,11 @@ export default class User extends Model {
         type:{
           type:DataTypes.ENUM('SPA','PA','HOSPITAL','DOCTOR','LAB','DELVERER','NAIVE'),
           allowNull:false
+        },
+        status:{
+          type:DataTypes.ENUM('PENDING', 'APPROVED', 'DENIED'),
+          allowNull:false,
+          defaultValue:'PENDING'
         }
       },
       {
